@@ -1,0 +1,51 @@
+object NumberCheck {
+  def main(args: Array[String]): Unit = {
+    // Read input from user
+    println("Enter a number:")
+    val number = scala.io.StdIn.readDouble()
+
+    // Check if the number is positive, negative, or zero
+    if (number > 0)
+      println("The number is Positive.")
+    else if (number < 0)
+      println("The number is Negative.")
+    else
+      println("The number is Zero.")
+  }
+}
+
+
+
+
+
+
+
+
+object LargestOfTwo {
+  def main(args: Array[String]): Unit = {
+    // Read input from user
+    println("Enter the first number:")
+    val num1 = scala.io.StdIn.readInt()
+
+    println("Enter the second number:")
+    val num2 = scala.io.StdIn.readInt()
+
+    // Compare the two numbers
+    if (num1 > num2)
+      println(s"The largest number is: $num1")
+    else if (num2 > num1)
+      println(s"The largest number is: $num2")
+    else
+      println("Both numbers are equal.")
+  }
+}
+
+
+
+
+
+val inputfile = sc.textFile("/home/student/DSBDAL/wordcount_input.txt")
+val counts = inputfile.flatMap(line => line.split(" ")).map(word => (word, 1)).reduceByKey(_+_);
+counts.toDebugString
+counts.cache()
+counts.saveAsTextFile("output")
